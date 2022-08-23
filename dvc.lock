@@ -1,0 +1,17 @@
+schema: '2.0'
+stages:
+  testCreateDataset:
+    cmd: python src\createDataset.py
+    deps:
+    - path: src\createDataset.py
+      md5: 0ab12142167fbb179f60fc02d6f5aa04
+      size: 752
+  TestTraining:
+    cmd: python src\train_model.py
+    deps:
+    - path: src\train_model.py
+      md5: b4df60d4c302e675f3796265a5d3c06e
+      size: 699
+    params:
+      params.yaml:
+        train.test_size: 0.2

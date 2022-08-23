@@ -3,3 +3,11 @@ stages:
     cmd: python src\createDataset.py
     deps:
     - src\createDataset.py
+  TestTraining:
+    cmd: python train_model.py
+    deps:
+    - src\train_model.py
+    params:
+    - train.test_size
+    outs:
+    - model
