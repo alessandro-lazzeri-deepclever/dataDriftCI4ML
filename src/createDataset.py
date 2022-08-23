@@ -21,7 +21,7 @@ def drift(X,y, n = 1):
         dump((X,y), open('../dataset/datasets_v%03d.pkl' % v, 'wb'))
 
 if __name__ == '__main__':
-    #create_dataset()
+    create_dataset()
 
     X, y = load(open('../dataset/datasets_v%03d.pkl' % 1, 'rb'))
     n = 10
