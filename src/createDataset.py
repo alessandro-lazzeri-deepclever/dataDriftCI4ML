@@ -5,7 +5,7 @@ from random import random
 
 def create_dataset():
     datasets = make_classification(n_samples=50000, n_features=20, n_informative=15, n_classes=5, random_state=666)
-    dump(datasets, open('../dataset/datasets_v001.pkl', 'wb'))
+    dump(datasets, open('dataset/datasets_v001.pkl', 'wb'))
 
 def drift(X,y, n = 1):
 
@@ -18,22 +18,12 @@ def drift(X,y, n = 1):
             if random() > drift_col_chance:
                 X[:,i] *= drift
 
-        dump((X,y), open('../dataset/datasets_v%03d.pkl' % v, 'wb'))
+        dump((X,y), open('dataset/datasets_v%03d.pkl' % v, 'wb'))
 
 if __name__ == '__main__':
     create_dataset()
 
-    X, y = load(open('../dataset/datasets_v%03d.pkl' % 1, 'rb'))
+    X, y = load(open('dataset/datasets_v%03d.pkl' % 1, 'rb'))
     n = 10
     drift(X,y,n)
-
-
-
-
-
-
-if __name__ == '__main__':
-    create_dataset()
-
-
 

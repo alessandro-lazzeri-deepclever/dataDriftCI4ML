@@ -4,10 +4,17 @@ stages:
     deps:
     - src\createDataset.py
   TestTraining:
-    cmd: python train_model.py
+    cmd: python src\train_model.py
     deps:
     - src\train_model.py
     params:
     - train.test_size
+  TestInference:
+    cmd: python src\inference.py
+    deps:
+    - model\model_v001.pkl
+    - src\inference.py
+    params:
+    - inference.n_test
     outs:
-    - model
+    - score

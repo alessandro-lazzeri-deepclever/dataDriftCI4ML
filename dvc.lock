@@ -15,3 +15,20 @@ stages:
     params:
       params.yaml:
         train.test_size: 0.2
+  TestInference:
+    cmd: python src\inference.py
+    deps:
+    - path: model\model_v001.pkl
+      md5: 2e555c86859e9fd6537a42dbadf6a060
+      size: 1329373
+    - path: src\inference.py
+      md5: e1b2f9f41ec54e96b4acd380a27c4dfa
+      size: 487
+    params:
+      params.yaml:
+        inference.n_test: 10
+    outs:
+    - path: score
+      md5: efbbcf74758a00e1bec8e5f514141f1e.dir
+      size: 130
+      nfiles: 1
