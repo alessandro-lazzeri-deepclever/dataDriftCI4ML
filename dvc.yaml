@@ -1,0 +1,5 @@
+stages:
+  testCreateDataset:
+    cmd: python src\createDataset.py
+    deps:
+    - src\createDataset.py
