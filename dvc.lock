@@ -10,8 +10,8 @@ stages:
     cmd: python src\train_model.py
     deps:
     - path: src\train_model.py
-      md5: b4df60d4c302e675f3796265a5d3c06e
-      size: 699
+      md5: f505a7831f33764b330d049a60685a8c
+      size: 757
     params:
       params.yaml:
         train.test_size: 0.2
