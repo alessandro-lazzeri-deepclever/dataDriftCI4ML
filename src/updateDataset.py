@@ -17,12 +17,12 @@ def drift(X,y, n = 1):
             if random() > drift_col_chance:
                 X[:,i] *= drift
 
-        dump((X,y), open('dataset/prepared/datasets_v%03d.pkl' % v, 'wb'))
+    dump((X,y), open('dataset/prepared/datasets_v%03d.pkl' % v, 'wb'))
 
 
 if len(sys.argv) != 2:
     sys.stderr.write("Arguments error. Usage:\n")
-    sys.stderr.write("\tpython updateDataset.py n_datasets\n")
+    sys.stderr.write("\tpython updateDataset.py n_drifts\n")
     sys.exit(1)
 
 params = yaml.safe_load(open("params.yaml"))["dataset"]

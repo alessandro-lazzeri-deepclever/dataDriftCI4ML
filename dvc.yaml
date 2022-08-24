@@ -1,17 +1,13 @@
 stages:
-  testCreateDataset:
-    cmd: python src\createDataset.py 10
-    deps:
-    - src\createDataset.py
-    outs:
-    - dataset\original
-    - dataset\prepared
   TestTraining:
     cmd: python src\train_model.py
     deps:
+    - dataset\prepared\datasets_v002.pkl
     - src\train_model.py
     params:
     - train.test_size
+    outs:
+    - model
   TestInference:
     cmd: python src\inference.py
     deps:
@@ -29,3 +25,11 @@ stages:
     metrics:
     - inference\score.txt:
         cache: false
+  updateDataset:
+    cmd: python src\updateDataset.py 10
+    deps:
+    - dataset\original\datasets_v001.pkl
+    - params.yaml
+    - src\updateDataset.py
+    outs:
+    - dataset\prepared
