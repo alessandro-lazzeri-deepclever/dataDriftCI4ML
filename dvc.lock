@@ -1,11 +1,20 @@
 schema: '2.0'
 stages:
   testCreateDataset:
-    cmd: python src\createDataset.py
+    cmd: python src\createDataset.py 10
     deps:
     - path: src\createDataset.py
-      md5: 0ab12142167fbb179f60fc02d6f5aa04
-      size: 752
+      md5: f6ce1a343e309ab09d2d07b6a743d812
+      size: 1201
+    outs:
+    - path: dataset\original
+      md5: 2d21db91085ab18c5304f71a14a34fcf.dir
+      size: 8200241
+      nfiles: 1
+    - path: dataset\prepared
+      md5: 1154cc6828741f9866f56bf59100d060.dir
+      size: 82002410
+      nfiles: 10
   TestTraining:
     cmd: python src\train_model.py
     deps:
