@@ -26,9 +26,22 @@ stages:
       size: 487
     params:
       params.yaml:
-        inference.n_test: 10
+        inference.n_test: 5
     outs:
     - path: score
-      md5: efbbcf74758a00e1bec8e5f514141f1e.dir
-      size: 130
+      md5: 0c1ae9d5b1fd006dedb9034677fd8ff4.dir
+      size: 65
       nfiles: 1
+  TestEvaluate:
+    cmd: python src\evaluate.py
+    deps:
+    - path: model\model_v001.pkl
+      md5: 2e555c86859e9fd6537a42dbadf6a060
+      size: 1329373
+    - path: src\evaluate.py
+      md5: 2f81469c99952ada8563c07de2e81d37
+      size: 521
+    outs:
+    - path: inference\score.txt
+      md5: 0e36c9aac98cd33acab73f77c82d48b6
+      size: 130

@@ -3,6 +3,8 @@ stages:
     cmd: python src\createDataset.py
     deps:
     - src\createDataset.py
+    -outs:
+      - dataset\prepared
   TestTraining:
     cmd: python src\train_model.py
     deps:
@@ -18,3 +20,11 @@ stages:
     - inference.n_test
     outs:
     - score
+  TestEvaluate:
+    cmd: python src\evaluate.py
+    deps:
+    - model\model_v001.pkl
+    - src\evaluate.py
+    metrics:
+    - inference\score.txt:
+        cache: false
